@@ -1,0 +1,255 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url(../fonts/SanFranciscoProDisplay/SF-Pro-Display-Light.otf);
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+}
+
+:root {
+    --fontDefault: 'SF Pro Display';
+
+
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fontDefault), sans-serif;
+    font-size: 16px;
+    color: #A7A1AE;
+    background: #1F2739;
+}
+
+header {
+    width: 80%;
+    margin: 40px auto;
+}
+
+.header__title {
+    text-align: center;
+}
+
+.table-container {
+    width: 80%;
+    margin: 40px auto;
+}
+
+.table-container__filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    background-color: #323C50;
+    padding: 10px;
+}
+
+input {
+    height: 40px;
+    background-color: #2C3446;
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #717995;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: #717995;
+}
+
+select {
+    height: 40px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    background-color: #2C3446;
+    color: #717995;
+    padding: 10px 20px;
+
+    cursor: pointer;
+}
+
+.button {
+    height: 40px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    background-color: #717995;
+    color: #2C3446;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #626981;
+}
+
+button:active {
+    background-color: #5a6075;
+}
+
+.table {
+    margin-top: 40px;
+    font-size: 0.875rem;
+    width: 100%;
+}
+
+td {
+    vertical-align: middle;
+    color: #D8E6F3;
+    padding: 20px;
+}
+
+.table-header {
+    height: 40px;
+    letter-spacing: 0.0315rem;
+    text-align: left;
+    color: #185875;
+    background-color: #1F2739;
+}
+
+.table-header th {
+    padding-left: 20px;
+    font-size: 1em;
+}
+
+.table tr:nth-child(even) {
+    background-color: #2C3446;
+}
+
+.table tr:nth-child(2n+3) {
+    background-color: #323C50;
+}
+
+.table-header__sort {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    margin-right: 5px;
+}
+
+.table-header__sort label {
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.table-header__sort label svg {
+    fill: #185875;
+}
+
+.table-header__sort input:checked + label svg {
+    fill: white;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.radio-button {
+    display: inline-block;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: #1F2739;
+    color: #717995;
+    padding-top: 10px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.filter-logic input:checked + label {
+    background-color: #717995;
+    color: #1F2739;
+}
+
+@media screen and (max-width: 1475px) {
+
+    .table-container {
+        width: 90%;
+        margin: 40px auto;
+    }
+
+    .filter-range__input {
+        width: 65px;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+
+    .table-container {
+        width: 100%;
+    }
+
+    .table-container__filter {
+        flex-direction: column;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .filter-login input {
+        width: 100%;
+    }
+
+    .filter-range input {
+        margin: 0 auto;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .filter-select select {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .filter-logic {
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .button {
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .table-container__table {
+        width: 100%;
+        overflow: scroll;
+    }
+
+    .table-header th {
+        text-align: center;
+        padding-left: 0;
+        min-width: 80px;
+        height: 80px;
+        position: relative;
+    }
+
+    .table-header__sort {
+        float: none;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+    }
+    .table-header__sort label {
+        display: inline-block;
+    }
+
+    td:nth-child(1) {
+        text-align: right;
+    }
+
+}
+
+

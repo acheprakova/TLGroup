@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script rel="script" src="assets/js/script.js"></script>
+    <link type="image/x-icon" href="assets/img/favicon-32x32.png" rel="icon">
+    <title>Тестовое задание</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+<header class="header">
+    <h1 class="header__title">Тестовое задание</h1>
+</header>
+<main>
+    <section>
+        <div class="table-container">
+            <div class="table-container__filter">
+                <div class="filter-login">
+                    <input type="text" id="loginInput" placeholder="Найти по логину..">
+                </div>
+                <div class="filter-range">
+                    <input class="filter-range__input" type="number" id="orderInputFrom" placeholder="От">
+                    <input class="filter-range__input" type="number" id="orderInputTo" placeholder="До">
+                </div>
+                <div class="filter-select">
+                    <select id="statusSelect" name="status[]">
+                        <option selected value="">Выберите статус</option>
+                    </select>
+                </div>
+                <div class="filter-logic">
+                    <input type="radio" id="inputRadioOr" name="variant" value="true">
+                    <label class="radio-button" for="inputRadioOr">Или</label>
+                    <input type="radio" id="inputRadioAnd" name="variant" value="false" checked>
+                    <label class="radio-button" for="inputRadioAnd">И</label>
+                </div>
+                <button id="apply" class="button">Найти</button>
+            </div>
+            <div class="table-container__table">
+                <table id="orderTable" class="table">
+                    <tr class="table-header">
+                        <th>Место
+                            <div class="table-header__sort">
+                                <input type="radio" id="sortNumberAsc" name="sort" value="numberAsc">
+                                <label for="sortNumberAsc">
+                                    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                    d="m488.832 344.32-339.84 356.672a32 32 0 0 0 0 44.16l.384.384a29.44 29.44 0 0 0 42.688 0l320-335.872 319.872 335.872a29.44 29.44 0 0 0 42.688 0l.384-.384a32 32 0 0 0 0-44.16L535.168 344.32a32 32 0 0 0-46.336 0z"></path>
+                                        </g>
+                                    </svg>
+                                </label>
+                                <input type="radio" id="sortNumberDesc" name="sort" value="numberDesc">
+                                <label for="sortNumberDesc">
+                                    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                    d="M831.872 340.864 512 652.672 192.128 340.864a30.592 30.592 0 0 0-42.752 0 29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728 30.592 30.592 0 0 0-42.752 0z"></path>
+                                        </g>
+                                    </svg>
+                                </label>
+                            </div>
+                        </th>
+                        <th>Логин
+                            <div class="table-header__sort">
+                                <input class="radio-button" type="radio" id="sortLoginAsc" name="sort" value="loginAsc">
+                                <label for="sortLoginAsc">
+                                    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                    d="m488.832 344.32-339.84 356.672a32 32 0 0 0 0 44.16l.384.384a29.44 29.44 0 0 0 42.688 0l320-335.872 319.872 335.872a29.44 29.44 0 0 0 42.688 0l.384-.384a32 32 0 0 0 0-44.16L535.168 344.32a32 32 0 0 0-46.336 0z"></path>
+                                        </g>
+                                    </svg>
+                                </label>
+                                <input class="radio-button" type="radio" id="sortLoginDesc" name="sort"
+                                       value="loginDesc">
+                                <label for="sortLoginDesc">
+                                    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                    d="M831.872 340.864 512 652.672 192.128 340.864a30.592 30.592 0 0 0-42.752 0 29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728 30.592 30.592 0 0 0-42.752 0z"></path>
+                                        </g>
+                                    </svg>
+                                </label>
+                            </div>
+                        </th>
+                        <th>Подтверждённые заказы
+                            <div class="table-header__sort">
+                                <input class="radio-button" type="radio" id="sortOrderAsc" name="sort" value="orderAsc">
+                                <label for="sortOrderAsc">
+                                    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                    d="m488.832 344.32-339.84 356.672a32 32 0 0 0 0 44.16l.384.384a29.44 29.44 0 0 0 42.688 0l320-335.872 319.872 335.872a29.44 29.44 0 0 0 42.688 0l.384-.384a32 32 0 0 0 0-44.16L535.168 344.32a32 32 0 0 0-46.336 0z"></path>
+                                        </g>
+                                    </svg>
+                                </label>
+                                <input class="radio-button" type="radio" id="sortOrderDesc" name="sort"
+                                       value="orderDesc">
+                                <label for="sortOrderDesc">
+                                    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                    d="M831.872 340.864 512 652.672 192.128 340.864a30.592 30.592 0 0 0-42.752 0 29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728 30.592 30.592 0 0 0-42.752 0z"></path>
+                                        </g>
+                                    </svg>
+                                </label>
+                            </div>
+                        </th>
+                        <th>Статус
+                            <div class="table-header__sort">
+                                <input class="radio-button" type="radio" id="sortStatusAsc" name="sort"
+                                       value="statusAsc">
+                                <label for="sortStatusAsc">
+                                    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                    d="m488.832 344.32-339.84 356.672a32 32 0 0 0 0 44.16l.384.384a29.44 29.44 0 0 0 42.688 0l320-335.872 319.872 335.872a29.44 29.44 0 0 0 42.688 0l.384-.384a32 32 0 0 0 0-44.16L535.168 344.32a32 32 0 0 0-46.336 0z"></path>
+                                        </g>
+                                    </svg>
+                                </label>
+                                <input class="radio-button" type="radio" id="sortStatusDesc" name="sort"
+                                       value="statusDesc">
+                                <label for="sortStatusDesc">
+                                    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                    d="M831.872 340.864 512 652.672 192.128 340.864a30.592 30.592 0 0 0-42.752 0 29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728 30.592 30.592 0 0 0-42.752 0z"></path>
+                                        </g>
+                                    </svg>
+                                </label>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>smith@gmail.com</td>
+                        <td>312</td>
+                        <td>Ценитель красоты</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>lenin@gmail.com</td>
+                        <td>120</td>
+                        <td>Поставщик аксессуаров</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>mask@gmail.com</td>
+                        <td>98</td>
+                        <td>Конкурент минздрава</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>dog@mail.ru</td>
+                        <td>64</td>
+                        <td>Рыбак</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>nightmare@mail.ru</td>
+                        <td>34</td>
+                        <td>Охотник</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>kittycat@mail.ru</td>
+                        <td>1</td>
+                        <td>Ценитель красоты</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>circle@gmail.ru</td>
+                        <td>3</td>
+                        <td>Замкнутый</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>pes@mail.ru</td>
+                        <td>101</td>
+                        <td>рыбак</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>hungry@gmail.ru</td>
+                        <td>1</td>
+                        <td>рыбак</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>vodka@mail.ru</td>
+                        <td>1</td>
+                        <td>Конкурент минздрава</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>vasiliev.alexandr@gmail.ru</td>
+                        <td>55</td>
+                        <td>Ценитель красоты</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>cow@gmail.ru</td>
+                        <td>73</td>
+                        <td>Поставщик аксессуаров</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>sobakaulubaka@yandex.ru</td>
+                        <td>79</td>
+                        <td>Грустняка</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>cheprakova.anna@mail.ru</td>
+                        <td>350</td>
+                        <td>Маленький фронтенд</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
