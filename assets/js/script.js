@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
             option.setAttribute("value", tdStatus);
             option.innerHTML = tdStatus;
 
-
             document.getElementById("statusSelect").appendChild(option);
         }
     }
