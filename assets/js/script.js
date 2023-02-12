@@ -1,7 +1,7 @@
 "use strict"
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.('DOMContentLoaded', function () {
     var button = document.querySelector('#apply');
     var table = document.getElementById('orderTable');
     var tr = table.getElementsByTagName('tr');
@@ -18,11 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
             orderMax = tr[i].getElementsByTagName('td')[2].innerHTML * 1;
         }
 
-        if (arrayStatus.indexOf(tdStatus)) {
+        if (arrayStatus.indexOf(tdStatus) == -1) {
+
             arrayStatus.push(tdStatus);
             var option = document.createElement("option");
             option.setAttribute("value", tdStatus);
             option.innerHTML = tdStatus;
+
+
             document.getElementById("statusSelect").appendChild(option);
         }
     }
