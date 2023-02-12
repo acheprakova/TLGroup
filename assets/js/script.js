@@ -1,7 +1,7 @@
 "use strict"
 
 
-document.('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     var button = document.querySelector('#apply');
     var table = document.getElementById('orderTable');
     var tr = table.getElementsByTagName('tr');
