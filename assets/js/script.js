@@ -8,16 +8,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var sortRadio = document.getElementsByName('sort');
     var i, tdStatus, orderMin, orderMax, arrayStatus = [];
 
+
     for (i = 1; i < tr.length; i++) {
 
-        tdStatus = tr[i].getElementsByTagName('td')[3].innerHTML;
         if (!(orderMin < tr[i].getElementsByTagName('td')[2].innerHTML * 1) && tr[i].getElementsByTagName('td')[2].innerHTML !== '') {
             orderMin = tr[i].getElementsByTagName('td')[2].innerHTML * 1;
         }
-        if (!(orderMax > tr[i].getElementsByTagName('td')[2].innerHTML * 1)) {
+        if (!(orderMax > tr[i].getElementsByTagName('td')[2].innerHTML * 1) && tr[i].getElementsByTagName('td')[2].innerHTML !== '') {
             orderMax = tr[i].getElementsByTagName('td')[2].innerHTML * 1;
         }
 
+        tdStatus = tr[i].getElementsByTagName('td')[3].innerHTML;
         if (arrayStatus.indexOf(tdStatus) == -1) {
 
             arrayStatus.push(tdStatus);
@@ -29,13 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     document.getElementById('orderInputFrom').setAttribute('min', orderMin);
-
     document.getElementById('orderInputTo').setAttribute('max', orderMax);
 
 
     button.addEventListener('click', function () {
         var tdLogin, tdOrder, tdStatus, filterLogin, filterOrderFrom, filterOrderTo, filterSelect, filterVariant, i,
             flagDisplay;
+
         filterLogin = document.getElementById('loginInput').value.toUpperCase();
         filterOrderFrom = document.getElementById('orderInputFrom').value == '' ? false : document.getElementById('orderInputFrom').value * 1;
         filterOrderTo = document.getElementById('orderInputTo').value == '' ? false : document.getElementById('orderInputTo').value * 1;
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         for (i = 1; i < tr.length; i++) {
 
-            if (filterLogin || filterOrderFrom || filterOrderTo || filterSelect) {
+            if (filterLogin || (filterOrderFrom || filterOrderFrom === 0) || (filterOrderTo || filterOrderTo === 0)  || filterSelect) {
                 if (filterVariant) {
                     flagDisplay = false;
                 } else {
@@ -59,12 +60,16 @@ document.addEventListener('DOMContentLoaded', function () {
             tdOrder = tr[i].getElementsByTagName('td')[2].innerHTML * 1;
             tdStatus = tr[i].getElementsByTagName('td')[3].innerHTML;
 
-            if (filterLogin && tdLogin && tdLogin.indexOf(filterLogin) >= 0) {
-                if (filterVariant) {
-                    flagDisplay = true;
+            if(filterLogin && tdLogin) {
+                if( tdLogin.indexOf(filterLogin) >= 0) {
+                    if (filterVariant) {
+                        flagDisplay = true;
+                    }
+                }else{
+                    if (!filterVariant) {
+                        flagDisplay = false;
+                    }
                 }
-            } else if (!filterVariant && filterLogin && tdLogin) {
-                flagDisplay = false;
             }
 
 
@@ -92,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     }
 
-                } else if (filterOrderFrom) {
+                } else if (filterOrderFrom !== false) {
                     if (tdOrder >= filterOrderFrom) {
                         if (filterVariant) {
                             flagDisplay = true;
@@ -102,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             flagDisplay = false;
                         }
                     }
-                } else if (filterOrderTo) {
+                } else if (filterOrderTo !== false) {
                     if (tdOrder <= filterOrderTo) {
                         if (filterVariant) {
                             flagDisplay = true;
@@ -112,10 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             flagDisplay = false;
                         }
                     }
-                }
-            } else {
-                if (!filterVariant) {
-                    flagDisplay = false;
                 }
             }
 
